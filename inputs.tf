@@ -1,43 +1,28 @@
-variable "default_root_object" {
-  description = "The default object for CloudFront to return"
-  default     = "index.html"
+variable "aws_region" {
+  description = "The AWS region to use"
+  default     = "us-east-1"
 }
 
-variable "enable_ipv6" {
-  description = "Whether or not to enable ipv6"
+variable "domain" {
+  description = "The domain to host the site at"
+}
+
+variable "error_page" {
+  description = "The error page of the site"
+  default     = "error.html"
 }
 
 variable "hosted_zone" {
-  description = "The hosted zone to deploy the site to"
+  description = "The hosted zone to use"
 }
 
-variable "max_ttl" {
-  description = "Maximum ttl for cache"
-  default     = 3600
+variable "index_page" {
+  description = "The index page of the site"
+  default     = "index.html"
 }
 
-variable "min_ttl" {
-  description = "Minimum ttl for cache"
-  default     = 0
+variable "versioning" {
+  description = "Whether or not to enable versioning on the site S3 bucket"
+  default     = true
 }
 
-variable "origin_access_identity_comment" {
-  description = "The comment to give the origin access identity"
-}
-
-variable "private_hosted_zone" {
-  description = "Is the hosted zone private?"
-}
-
-variable "resource_tag_map" {
-  description = "A map of tags to use on resources"
-  type        = "map"
-}
-
-variable "s3_bucket_name" {
-  description = "The name of the S3 bucket that contains the static site"
-}
-
-variable "validation_method" {
-  description = "The validation method to use for the ACM certificate (DNS, EMAIL, or NONE)"
-}
